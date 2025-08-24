@@ -224,8 +224,9 @@ func (h *BookHandler) Create(c *gin.Context) {
 	book.TotalPage = bookInput.TotalPage
 	book.Thickness = thickness
 	book.CategoryID = bookInput.CategoryID
-	book.CreatedBy = username.(string)
-	book.ModifiedBy = username.(string)
+	usernameStr := username.(string)
+	book.CreatedBy = &usernameStr
+	book.ModifiedBy = &usernameStr
 
 	// Get category name if category_id is provided
 	if bookInput.CategoryID != nil {

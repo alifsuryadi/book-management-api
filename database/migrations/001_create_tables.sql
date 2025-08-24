@@ -45,7 +45,7 @@ CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);
 
 -- Insert default admin user (password: admin123)
 INSERT INTO users (username, password, created_by) VALUES 
-('admin', '$2a$10$N9qo8uLOickgx2ZMRZoMye6vILSGXD8VjX4lWgF1xHKIb9r2JO9Xa', 'system');
+('admin', '$2a$10$6v4IMCcL8NZT/JSF9fSwr.fQx/zWzsBGJF8N9m3bj5RRS4HSPpjUy', 'system');
 
 -- Insert sample categories
 INSERT INTO categories (name, created_by) VALUES 

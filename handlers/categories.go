@@ -147,8 +147,9 @@ func (h *CategoryHandler) Create(c *gin.Context) {
 		return
 	}
 
-	category.CreatedBy = username.(string)
-	category.ModifiedBy = username.(string)
+	usernameStr := username.(string)
+	category.CreatedBy = &usernameStr
+	category.ModifiedBy = &usernameStr
 
 	c.JSON(http.StatusCreated, models.APIResponse{
 		Success: true,

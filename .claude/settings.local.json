@@ -3,7 +3,8 @@
     "allow": [
       "Bash(go:*)",
       "Bash(mv:*)",
-      "Bash(timeout 5 go run main.go)"
+      "Bash(timeout 5 go run main.go)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

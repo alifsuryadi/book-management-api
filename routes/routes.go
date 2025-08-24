@@ -12,6 +12,9 @@ import (
 )
 
 func SetupRoutes(router *gin.Engine, db *sql.DB, cfg *config.Config) {
+	// Set trusted proxies (only localhost for development)
+	router.SetTrustedProxies([]string{"127.0.0.1", "::1"})
+	
 	// Add CORS middleware
 	router.Use(middleware.CORS())
 
@@ -39,6 +42,8 @@ func SetupRoutes(router *gin.Engine, db *sql.DB, cfg *config.Config) {
 		users := api.Group("/users")
 		{
 			users.POST("/login", userHandler.Login)
+			users.POST("/seed-admin", userHandler.SeedAdmin) // Temporary endpoint to create admin user
+			users.POST("/reset-admin-password", userHandler.ResetAdminPassword) // Temporary endpoint to reset admin password
 		}
 
 		// Category routes with JWT authentication
