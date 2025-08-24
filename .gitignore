@@ -16,6 +16,8 @@
 
 # Go workspace file
 go.work
+/.claude
+*local.json
 
 # Environment variables
 .env

@@ -308,6 +308,38 @@ Authorization: Bearer your_jwt_token_here
 - Username: `admin`
 - Password: `admin123`
 
+### Admin Seeding
+
+To create the default admin user, use the `/api/seed/admin` endpoint:
+
+```bash
+# Seed admin user
+curl -X POST http://localhost:8080/api/seed/admin \
+  -H "Content-Type: application/json"
+```
+
+This will create an admin user with:
+- Username: `admin`
+- Password: `admin123`
+
+**Note**: This endpoint should only be used once during initial setup. It will return an error if an admin user already exists.
+
+### Password Reset
+
+To reset a user's password, use the `/api/reset-password` endpoint:
+
+```bash
+# Reset password
+curl -X POST http://localhost:8080/api/reset-password \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "admin",
+    "new_password": "newpassword123"
+  }'
+```
+
+**Security Note**: This endpoint should be protected in production environments with additional authentication or administrative privileges.
+
 ## Deployment to Railway
 
 1. **Create Railway account** at [railway.app](https://railway.app)
