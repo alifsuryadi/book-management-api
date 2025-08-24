@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go:*)",
+      "Bash(mv:*)",
+      "Bash(timeout 5 go run main.go)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
